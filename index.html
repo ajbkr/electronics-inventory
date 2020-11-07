@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mvp.css/1.6.2/mvp.css" />
+    <title>Electronics Inventory</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.7.3/alpine.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Electronics Inventory</h1>
+      <h3>ICs</h3>
+      <table x-data="items">
+        <tr>
+          <th style="text-align: left">Item</th>
+          <th style="text-align: left">Description</th>
+          <th>Category</th>
+          <th style="text-align: right">Qty</th>
+        </tr>
+        <template x-for="(item, index) in items.ics" :key="index">
+          <tr>
+            <td x-text="item.name" />
+            <td style="text-align: left" x-text="item.description" />
+            <td x-text="item.category" />
+            <td style="text-align: right" x-text="item.quantity" />
+          </tr>
+        </template>
+      </table>
+    </main>
+    <script>
+const categories = {
+  COMMS: 'Comms',
+  LOGIC: 'Logic',
+  MEMORY: 'Memory',
+  OP_AMP: 'Op Amp',
+  PROCESSOR: 'Processor'
+}
+
+const items = {
+  ics: [
+    {
+      name: 'SN74HCT04N',
+      description: 'Hex inverter',
+      category: categories.LOGIC,
+      quantity: 10
+    },
+    {
+      name: 'LM393P',
+      description: 'Dual differential comparator',
+      category: categories.OP_AMP,
+      quantity: 10
+    },
+    {
+      name: 'SN74HC165N',
+      description: '8-bit parallel-load shift register',
+      category: categories.LOGIC,
+      quantity: 10
+    },
+    {
+      name: 'MC68B50CP',
+      description: 'Asynchronous Communications Interface Adapter (ACIA)',
+      category: categories.COMMS,
+      quantity: 5
+    },
+    {
+      name: 'HM62256ALP-12',
+      description: '32,768-word x 8-bit high speed CMOS static RAM',
+      category: categories.MEMORY,
+      quantity: 5
+    },
+    {
+      name: 'SN74LS32N',
+      description: 'Quad 2-input OR gate',
+      category: categories.LOGIC,
+      quantity: 5
+    },
+    {
+      name: 'Z84C0008PEC',
+      description: 'Central Processing Unit (CPU) - DC to 8 MHz',
+      category: categories.PROCESSOR,
+      quantity: 2
+    },
+    {
+      name: 'AT28C64B-15PU',
+      description: '64K (8K x 8) parallel EEPROM with page write and software ' +
+        'data protection',
+      category: categories.MEMORY,
+      quantity: 2
+    },
+    {
+      name: 'TMS2764-25JL',
+      description: '65,536-bit UV erasable programmable read-only memory (EPROM)',
+      category: categories.MEMORY,
+      quantity: 10
+    },
+    {
+      name: 'SN7400N',
+      description: 'Quadruple 2-input positive-NAND gate',
+      category: categories.LOGIC,
+      quantity: 2
+    },
+    {
+      name: 'HM62256ALP-8',
+      description: '32,768-word x 8-bit high speed CMOS static RAM',
+      category: categories.MEMORY,
+      quantity: 5
+    },
+    {
+      name: 'PIC16F84A-20/P',
+      description: '18-pin enhanced FLASH/EEPROM 8-bit microcontroller',
+      category: categories.PROCESSOR,
+      quantity: 1
+    },
+    {
+      name: 'PIC16F84A-04/P',
+      description: '18-pin enhanced FLASH/EEPROM 8-bit microcontroller',
+      category: categories.PROCESSOR,
+      quantity: 1
+    },
+    {
+      name: 'MAX232CPE',
+      description: '+5V-powered, multichannel RS-232 driver/receiver',
+      category: categories.COMMS,
+      quantity: 1
+    },
+    {
+      name: 'PIC16F77-I/P',
+      description: '40-pin, 8-bit CMOS FLASH microcontroller',
+      category: categories.PROCESSOR,
+      quantity: 1
+    },
+    {
+      name: 'ATMEGA1284P-PU',
+      description: '8-bit AVR microcontroller with 128K bytes in-system programmable flash',
+      category: categories.PROCESSOR,
+      quantity: 2
+    },
+    {
+      name: 'ATMEGA328P-PU',
+      description: '8-bit AVR microcontroller with 32K bytes in-system programmable flash',
+      category: categories.PROCESSOR,
+      quantity: 2
+    },
+    {
+      name: '23LCV512',
+      description: '512 Kbit SPI serial SRAM with battery backup and SDI interface',
+      category: categories.MEMORY,
+      quantity: 1
+    },
+    {
+      name: 'ATTINY85-20PU',
+      description: '8-bit AVR microcontroller with 8K bytes in-system programmable flash',
+      category: categories.PROCESSOR,
+      quantity: 1
+    },
+    {
+      name: 'SN74LVC245AN',
+      description: 'Octal bus transceiver with 3-state outputs',
+      category: categories.LOGIC,
+      quantity: 1 // 2?
+    },
+    {
+      name: 'D431000ACZ-70LL',
+      description: '1M-bit CMOS static RAM 128K-word by 8-bit',
+      category: categories.MEMORY,
+      quantity: 1
+    },
+    {
+      name: 'TPIC6B595N',
+      description: 'Power logic 8-bit shift register',
+      category: categories.LOGIC,
+      quantity: 10
+    },
+    {
+      name: 'K6T1008C2E-DB55',
+      description: '128Kx8 bit low power CMOS static RAM',
+      category: categories.MEMORY,
+      quantity: 1
+    },
+    {
+      name: 'Am29F040B-90PC',
+      description: '4 megabit (512 K x 8-bit) CMOS 5.0 Volt-only, uniform sector flash memory',
+      category: categories.MEMORY,
+      quantity: 1
+    },
+    /*{
+      name: '',
+      description: '',
+      category: '',
+      quantity: 0
+    },*/
+  ]
+}
+    </script>
+  </body>
+</html>
