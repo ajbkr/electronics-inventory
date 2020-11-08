@@ -14,6 +14,7 @@
       <table>
         <tr>
           <th style="text-align: left">Item</th>
+          <th style="text-align: left">Part No.</th>
           <th style="text-align: left">Description</th>
           <th>Category</th>
           <th style="text-align: right">Qty</th>
@@ -21,6 +22,7 @@
         <template x-for="(item, index) in items.integratedCircuits" :key="index">
           <tr>
             <td x-text="item.name" />
+            <td style="text-align: left" x-text="item.partNumber" />
             <td style="text-align: left" x-text="item.description" />
             <td x-text="item.category" />
             <td style="text-align: right" x-text="item.quantity" />
@@ -53,6 +55,34 @@
             <td x-text="item.name" />
             <td style="text-align: left" x-text="item.description" />
             <td x-text="item.frequency" />
+            <td style="text-align: right" x-text="item.quantity" />
+          </tr>
+        </template>
+      </table>
+      <h3>Prototyping</h3>
+      <table>
+        <tr>
+          <th style="text-align: left">Item</th>
+          <th style="text-align: right">Qty</th>
+        </tr>
+        <template x-for="(item, index) in items.prototyping" :key="index">
+          <tr>
+            <td x-text="item.name" />
+            <td style="text-align: right" x-text="item.quantity" />
+          </tr>
+        </template>
+      </table>
+      <h3>Sensors</h3>
+      <table>
+        <tr>
+          <th style="text-align: left">Item</th>
+          <th style="text-align: left">Description</th>
+          <th style="text-align: right">Qty</th>
+        </tr>
+        <template x-for="(item, index) in items.sensors" :key="index">
+          <tr>
+            <td x-text="item.name" />
+            <td style="text-align: left" x-text="item.description" />
             <td style="text-align: right" x-text="item.quantity" />
           </tr>
         </template>
@@ -101,146 +131,170 @@ const categories = {
 const items = {
   integratedCircuits: [
     {
-      name: 'SN74HCT04N',
+      name: '6-unit NOT gate',
+      partNumber: 'SN74HCT04N',
       description: 'Hex inverter',
       category: categories.LOGIC,
       quantity: 10
     },
     {
-      name: 'LM393P',
+      name: 'Analog comparator',
+      partNumber: 'LM393P',
       description: 'Dual differential comparator',
       category: categories.OP_AMP,
       quantity: 10
     },
     {
-      name: 'SN74HC165N',
+      name: 'Parallel to serial converter',
+      partNumber: 'SN74HC165N',
       description: '8-bit parallel-load shift register',
       category: categories.LOGIC,
       quantity: 10
     },
     {
-      name: 'MC68B50CP',
+      name: 'Motorola UART',
+      partNumber: 'MC68B50CP',
       description: 'Asynchronous Communications Interface Adapter (ACIA)',
       category: categories.COMMS,
       quantity: 5
     },
     {
-      name: 'HM62256ALP-12',
+      name: '32KiB SRAM',
+      partNumber: 'HM62256ALP-12',
       description: '32,768-word x 8-bit high speed CMOS static RAM',
       category: categories.MEMORY,
       quantity: 5
     },
     {
-      name: 'SN74LS32N',
+      name: '4-unit OR gate',
+      partNumber: 'SN74LS32N',
       description: 'Quad 2-input OR gate',
       category: categories.LOGIC,
       quantity: 5
     },
     {
-      name: 'Z84C0008PEC',
+      name: 'Zilog Z80 (max. 8MHz)',
+      partNumber: 'Z84C0008PEC',
       description: 'Central Processing Unit (CPU) - DC to 8 MHz',
       category: categories.PROCESSOR,
       quantity: 2
     },
     {
-      name: 'AT28C64B-15PU',
+      name: '',
+      partNumber: 'AT28C64B-15PU',
       description: '64K (8K x 8) parallel EEPROM with page write and software ' +
         'data protection',
       category: categories.MEMORY,
       quantity: 2
     },
     {
-      name: 'TMS2764-25JL',
+      name: '',
+      partNumber: 'TMS2764-25JL',
       description: '65,536-bit UV erasable programmable read-only memory (EPROM)',
       category: categories.MEMORY,
       quantity: 10
     },
     {
-      name: 'SN7400N',
+      name: '4-unit NAND gate',
+      partNumber: 'SN7400N',
       description: 'Quadruple 2-input positive-NAND gate',
       category: categories.LOGIC,
       quantity: 2
     },
     {
-      name: 'HM62256ALP-8',
+      name: '',
+      partNumber: 'HM62256ALP-8',
       description: '32,768-word x 8-bit high speed CMOS static RAM',
       category: categories.MEMORY,
       quantity: 5
     },
     {
-      name: 'PIC16F84A-20/P',
+      name: 'Microchip PIC16F84A (max. 20MHz)',
+      partNumber: 'PIC16F84A-20/P',
       description: '18-pin enhanced FLASH/EEPROM 8-bit microcontroller',
       category: categories.PROCESSOR,
       quantity: 1
     },
     {
-      name: 'PIC16F84A-04/P',
+      name: 'Microchip PIC16F84A (max. 4MHz)',
+      partNumber: 'PIC16F84A-04/P',
       description: '18-pin enhanced FLASH/EEPROM 8-bit microcontroller',
       category: categories.PROCESSOR,
       quantity: 1
     },
     {
-      name: 'MAX232CPE',
+      name: 'Maxim Integrated RS-232 serial driver',
+      partNumber: 'MAX232CPE',
       description: '+5V-powered, multichannel RS-232 driver/receiver',
       category: categories.COMMS,
       quantity: 1
     },
     {
-      name: 'PIC16F77-I/P',
+      name: 'Microchip PIC16F77',
+      partNumber: 'PIC16F77-I/P',
       description: '40-pin, 8-bit CMOS FLASH microcontroller',
       category: categories.PROCESSOR,
       quantity: 1
     },
     {
-      name: 'ATMEGA1284P-PU',
+      name: 'Atmel ATmega1284 (max. 20MHz)',
+      partNumber: 'ATMEGA1284P-PU',
       description: '8-bit AVR microcontroller with 128K bytes in-system programmable flash',
       category: categories.PROCESSOR,
       quantity: 2
     },
     {
-      name: 'ATMEGA328P-PU',
+      name: 'Atmel ATmega328 (max. 20MHz)',
+      partNumber: 'ATMEGA328P-PU',
       description: '8-bit AVR microcontroller with 32K bytes in-system programmable flash',
       category: categories.PROCESSOR,
       quantity: 2
     },
     {
-      name: '23LCV512',
+      name: 'Microchip 64KiB serial SRAM',
+      partNumber: '23LCV512',
       description: '512 Kbit SPI serial SRAM with battery backup and SDI interface',
       category: categories.MEMORY,
       quantity: 1
     },
     {
-      name: 'ATTINY85-20PU',
+      name: 'Atmel ATtiny85 (max. 20MHz)',
+      partNumber: 'ATTINY85-20PU',
       description: '8-bit AVR microcontroller with 8K bytes in-system programmable flash',
       category: categories.PROCESSOR,
       quantity: 1
     },
     {
-      name: 'SN74LVC245AN',
+      name: '',
+      partNumber: 'SN74LVC245AN',
       description: 'Octal bus transceiver with 3-state outputs',
       category: categories.LOGIC,
       quantity: 1 // 2?
     },
     {
-      name: 'D431000ACZ-70LL',
+      name: '',
+      partNumber: 'D431000ACZ-70LL',
       description: '1M-bit CMOS static RAM 128K-word by 8-bit',
       category: categories.MEMORY,
       quantity: 1
     },
     {
-      name: 'TPIC6B595N',
+      name: '',
+      partNumber: 'TPIC6B595N',
       description: 'Power logic 8-bit shift register',
       category: categories.LOGIC,
       quantity: 10
     },
     {
-      name: 'K6T1008C2E-DB55',
+      name: '128KiB parallel SRAM',
+      partNumber: 'K6T1008C2E-DB55',
       description: '128Kx8 bit low power CMOS static RAM',
       category: categories.MEMORY,
       quantity: 1
     },
     {
-      name: 'Am29F040B-90PC',
+      name: '512KiB flash memory',
+      partNumber: 'Am29F040B-90PC',
       description: '4 megabit (512 K x 8-bit) CMOS 5.0 Volt-only, uniform sector flash memory',
       category: categories.MEMORY,
       quantity: 1
@@ -248,6 +302,7 @@ const items = {
     },
     {
       name: '',
+      partNumber: '',
       description: '',
       category: '',
       quantity: 0
@@ -282,6 +337,19 @@ const items = {
       description: 'Miniature quartz crystal unit for microprocessor',
       frequency: 16,
       quantity: 20
+    }
+  ],
+  prototyping: [
+    {
+      name: '300 tie point solderless breadboard',
+      quantity: 1
+    }
+  ],
+  sensors: [
+    {
+      name: 'ELEGOO 37 sensor kit v1.0',
+      description: 'Includes joystick, relay, big sound, small sound, line tracking, obstacle avoidance, flame, linear Hall, metal touch, digital temperature, active buzzer, passive buzzer, RGB LED, SMD RGB, two-colour LED, mini two-colour, magnetic spring, mini reed switch, heartbeat, 7-colour flash, laser emitter, button, shake, rotary encoders, light cup (2x), hydrargyrum-switch, tilt-switch, photo-resistor, temp and humidity, analog Hall, Hall magnetic, 18B20 temp, analog temp, IR emission, IR receiver, tap, and light blocking modules',
+      quantity: 1
     }
   ],
   switches: [

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "serve",
     "lint": "standard --plugin html '**/*.html'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,6 +22,7 @@
   "private": true,
   "devDependencies": {
     "eslint-plugin-html": "^6.1.0",
+    "serve": "^11.3.2",
     "standard": "^16.0.1"
   }
 }
