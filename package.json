@@ -1,0 +1,26 @@
+{
+  "name": "electronics-inventory",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard --plugin html '**/*.html'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajbkr/electronics-inventory.git"
+  },
+  "keywords": [],
+  "author": "Andrew J. Baker <andrew_j_baker2@hotmail.com>",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/ajbkr/electronics-inventory/issues"
+  },
+  "homepage": "https://github.com/ajbkr/electronics-inventory#readme",
+  "private": true,
+  "devDependencies": {
+    "eslint-plugin-html": "^6.1.0",
+    "standard": "^16.0.1"
+  }
+}

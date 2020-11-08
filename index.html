@@ -6,21 +6,66 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.7.3/alpine.js"></script>
   </head>
   <body>
-    <main>
+    <main x-data="items">
       <h1>Electronics Inventory</h1>
-      <h3>ICs</h3>
-      <table x-data="items">
+      <h3>Integrated Circuits (ICs)</h3>
+      <table>
         <tr>
           <th style="text-align: left">Item</th>
           <th style="text-align: left">Description</th>
           <th>Category</th>
           <th style="text-align: right">Qty</th>
         </tr>
-        <template x-for="(item, index) in items.ics" :key="index">
+        <template x-for="(item, index) in items.integratedCircuits" :key="index">
           <tr>
             <td x-text="item.name" />
             <td style="text-align: left" x-text="item.description" />
             <td x-text="item.category" />
+            <td style="text-align: right" x-text="item.quantity" />
+          </tr>
+        </template>
+      </table>
+      <h3>Optoelectronics</h3>
+      <table>
+        <tr>
+          <th style="text-align: left">Item</th>
+          <th style="text-align: right">Qty</th>
+        </tr>
+        <template x-for="(item, index) in items.optoelectronics" :key="index">
+          <tr>
+            <td x-text="item.name" />
+            <td style="text-align: right" x-text="item.quantity" />
+          </tr>
+        </template>
+      </table>
+      <h3>Oscillators</h3>
+      <table>
+        <tr>
+          <th style="text-align: left">Item</th>
+          <th style="text-align: left">Description</th>
+          <th>Frequency (MHz)</th>
+          <th style="text-align: right">Qty</th>
+        </tr>
+        <template x-for="(item, index) in items.oscillators" :key="index">
+          <tr>
+            <td x-text="item.name" />
+            <td style="text-align: left" x-text="item.description" />
+            <td x-text="item.frequency" />
+            <td style="text-align: right" x-text="item.quantity" />
+          </tr>
+        </template>
+      </table>
+      <h3>Switches</h3>
+      <table>
+        <tr>
+          <th style="text-align: left">Item</th>
+          <th style="text-align: left">Description</th>
+          <th style="text-align: right">Qty</th>
+        </tr>
+        <template x-for="(item, index) in items.switches" :key="index">
+          <tr>
+            <td x-text="item.name" />
+            <td style="text-align: left" x-text="item.description" />
             <td style="text-align: right" x-text="item.quantity" />
           </tr>
         </template>
@@ -35,8 +80,9 @@ const categories = {
   PROCESSOR: 'Processor'
 }
 
+// eslint-disable-next-line no-unused-vars
 const items = {
-  ics: [
+  integratedCircuits: [
     {
       name: 'SN74HCT04N',
       description: 'Hex inverter',
@@ -181,13 +227,57 @@ const items = {
       description: '4 megabit (512 K x 8-bit) CMOS 5.0 Volt-only, uniform sector flash memory',
       category: categories.MEMORY,
       quantity: 1
+    /*
     },
-    /*{
+    {
       name: '',
       description: '',
       category: '',
       quantity: 0
-    },*/
+    */
+    }
+  ],
+  optoelectronics: [
+    {
+      name: '3mm green LED',
+      quantity: 4
+    },
+    {
+      name: '3mm blue LED',
+      quantity: 5
+    },
+    {
+      name: '3mm red LED',
+      quantity: 2
+    },
+    {
+      name: '3mm yellow LED',
+      quantity: 5
+    },
+    {
+      name: 'Photoresistor',
+      quantity: 4
+    }
+  ],
+  oscillators: [
+    {
+      name: 'HC-49/S',
+      description: 'Miniature quartz crystal unit for microprocessor',
+      frequency: 16,
+      quantity: 20
+    }
+  ],
+  switches: [
+    {
+      name: 'OMRON B3F',
+      description: 'Through-hole mounting switch, projected type with key top',
+      quantity: 3
+    },
+    {
+      name: 'Push to make and break switch',
+      description: 'Through-hole mounting switch with key top',
+      quantity: 3
+    }
   ]
 }
     </script>
