@@ -1,7 +1,9 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mvp.css/1.6.2/mvp.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mvp.css/1.6.2/mvp.css">
     <title>Electronics Inventory</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.7.3/alpine.js"></script>
   </head>
@@ -63,6 +65,21 @@
           <th style="text-align: right">Qty</th>
         </tr>
         <template x-for="(item, index) in items.switches" :key="index">
+          <tr>
+            <td x-text="item.name" />
+            <td style="text-align: left" x-text="item.description" />
+            <td style="text-align: right" x-text="item.quantity" />
+          </tr>
+        </template>
+      </table>
+      <h3>Voltage Regulators</h3>
+      <table>
+        <tr>
+          <th style="text-align: left">Item</th>
+          <th style="text-align: left">Description</th>
+          <th style="text-align: right">Qty</th>
+        </tr>
+        <template x-for="(item, index) in items.voltageRegulators" :key="index">
           <tr>
             <td x-text="item.name" />
             <td style="text-align: left" x-text="item.description" />
@@ -277,6 +294,23 @@ const items = {
       name: 'Push to make and break switch',
       description: 'Through-hole mounting switch with key top',
       quantity: 3
+    }
+  ],
+  voltageRegulators: [
+    {
+      name: 'AMS1117-5.0',
+      description: '1A low dropout voltage regulator board',
+      quantity: 9 // 10?
+    },
+    {
+      name: 'AMS1117-3.3',
+      description: '1A low dropout voltage regulator board',
+      quantity: 1 // 3+?
+    },
+    {
+      name: 'LM7805',
+      description: '3-terminal 1A positive voltage regulator (TO-220)',
+      quantity: 4
     }
   ]
 }
