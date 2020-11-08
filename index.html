@@ -106,12 +106,14 @@
       <table>
         <tr>
           <th style="text-align: left">Item</th>
+          <th style="text-align: left">Part No.</th>
           <th style="text-align: left">Description</th>
           <th style="text-align: right">Qty</th>
         </tr>
         <template x-for="(item, index) in items.voltageRegulators" :key="index">
           <tr>
             <td x-text="item.name" />
+            <td style="text-align: left" x-text="item.partNumber" />
             <td style="text-align: left" x-text="item.description" />
             <td style="text-align: right" x-text="item.quantity" />
           </tr>
@@ -265,7 +267,7 @@ const items = {
       quantity: 1
     },
     {
-      name: '',
+      name: 'Bi-directional 3.3V/5V logic converter',
       partNumber: 'SN74LVC245AN',
       description: 'Octal bus transceiver with 3-state outputs',
       category: categories.LOGIC,
@@ -366,17 +368,20 @@ const items = {
   ],
   voltageRegulators: [
     {
-      name: 'AMS1117-5.0',
+      name: '12V to 5V regulator',
+      partNumber: 'AMS1117-5.0',
       description: '1A low dropout voltage regulator board',
       quantity: 9 // 10?
     },
     {
-      name: 'AMS1117-3.3',
+      name: '5V to 3.3V regulator',
+      partNumber: 'AMS1117-3.3',
       description: '1A low dropout voltage regulator board',
       quantity: 1 // 3+?
     },
     {
-      name: 'LM7805',
+      name: '9-12V to 5V regulator',
+      partNumber: 'LM7805',
       description: '3-terminal 1A positive voltage regulator (TO-220)',
       quantity: 4
     }
